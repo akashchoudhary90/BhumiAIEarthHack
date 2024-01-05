@@ -130,3 +130,31 @@ def main():
                       "content": assistant_response # messages are stored in the "data" key with the latest message at the first index
                     })
                 st.write(assistant_response.replace("$", "\$")) # display the assistant's response
+
+
+import openai
+
+# Set your API key here
+openai.api_key = 'your-api-key'
+
+# Define the assistant's ID or name
+assistant_id = 'your-assistant-id'
+
+# Your prompt to the assistant
+prompt = "Your question or statement here"
+
+try:
+    # Create an interaction with the assistant
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # or the specific model your assistant uses
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt}
+        ]
+    )
+
+    # Print the response
+    print(response.choices[0].message['content'])
+except Exception as e:
+    print(f"An error occurred: {e}")
+
