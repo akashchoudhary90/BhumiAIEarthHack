@@ -233,8 +233,9 @@ def main():
 
 
                                 # Convert DataFrame to CSV
-                    df = pd.DataFrame(json_array)
-                    csv = df.to_csv(index=False)
+                    data = [json.loads(jstr) for jstr in json_array]
+                    df = pd.DataFrame(data)
+                    csv = df.to_csv( index=False)
                     # Display the download link in Streamlit
                     st.markdown(get_table_download_link(csv, "your_data.csv", "Download CSV file"),
                                 unsafe_allow_html=True)

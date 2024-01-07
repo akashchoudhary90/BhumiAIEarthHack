@@ -10,18 +10,22 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     dotenv.load_dotenv(".env")
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-assistant_id = 'asst_tBGByeRx2D4dMri4mhh9qPR3'
-thread_id = 'thread_vS5RYQrqySCdQa4G0RxCNmmF'
+assistant_id = 'asst_Rt9ModRMBjlk1Q6mVQICfQw2'
+thread_id = 'thread_GbBmxo9rwGQA1QWwghRzB4g3'
 
 client = OpenAI()
+
 
 
 df = pd.read_csv(r"D:\downloads\[PARTICIPANTS] AI EarthHack Resources-20240106T141616Z-001\[PARTICIPANTS] AI EarthHack Resources\AI EarthHack Dataset - Copy.csv", encoding='ISO-8859-1')
 
 json_file_path = r"D:\downloads\[PARTICIPANTS] AI EarthHack Resources-20240106T141616Z-001\[PARTICIPANTS] AI EarthHack Resources\data.json"
+
+csv_file_path = r"D:\downloads\[PARTICIPANTS] AI EarthHack Resources-20240106T141616Z-001\[PARTICIPANTS] AI EarthHack Resources\data_CSV_OUTPUT.csv"
 data_json = df.to_json(json_file_path, orient='records', lines=True)
 
 existing_assistant = client.beta.assistants.retrieve(assistant_id)
+json_array=[]
 
 thread = client.beta.threads.retrieve(thread_id)
 
@@ -51,7 +55,13 @@ with open(json_file_path, 'r') as file:
 
             messages = client.beta.threads.messages.list(thread_id=thread_id)
             assistant_response = messages.data[0].content[0].text.value
-            print(assistant_response)
+            #print(assistant_response)
+            json_array.append(assistant_response)
+        print(json_array)
+
+        #df = pd.DataFrame(json_array)
+        #df.to_csv(csv_file_path, index=False)
+
 
 '''
 # display chat history
