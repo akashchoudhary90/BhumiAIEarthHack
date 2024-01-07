@@ -1,4 +1,7 @@
-streamlit
-python-dotenv
-openai
+streamlit~=1.29.0
+python-dotenv~=1.0.0
+openai~=1.6.1
 hupper
+pandas~=2.1.4
+chardet~=5.2.0
+requests~=2.31.0

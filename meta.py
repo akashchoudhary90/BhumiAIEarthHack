@@ -2,8 +2,8 @@
 import streamlit as st
 
 def meta():
-    st.set_page_config(page_icon="⚗️", page_title="AI assistant gpt", layout="wide") # or layout='centered'
-    st.write("# 🌎  Helps evaluate various aspects of sustainable business models ideas")
+    st.set_page_config(page_icon="⚗️", page_title="Bhumi AI", layout="wide") # or layout='centered'
+    st.write("# 🌎  Helps evaluate sustainable business ideas")
 
     # Hide the made with Streamlit footer
     hide_streamlit_style = """
