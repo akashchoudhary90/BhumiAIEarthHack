@@ -7,6 +7,7 @@ import json
 import base64
 
 # Load the OpenAI API key from environment variables or .env file
+# Modify the OpenaiApiKey as assistant is not accessible outside the personal account
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     dotenv.load_dotenv(".env")
