@@ -241,7 +241,7 @@ def main():
                                 unsafe_allow_html=True)
 
             # print("Response from the assistant:", response.choices[0].text.strip())
-
+'''
             # display chat history
             for message in st.session_state.messages:  # this is to show the chat history
                 if message["role"] == "assistant":
@@ -296,3 +296,4 @@ def main():
                                     # messages are stored in the "data" key with the latest message at the first index
                                 })
                             st.write(assistant_response.replace("$", "\$"))  # display the assistant's response
+'''
